@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/BACK-END">
+      <sourceFolder url="file://$MODULE_DIR$/BACK-END/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BACK-END/src/test/java/com/ToDos/MobileSubscribers" isTestSource="false" packagePrefix="com.ToDo.ToDo" />
+    </content>
+    <content url="file://$MODULE_DIR$/FRONT-END" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

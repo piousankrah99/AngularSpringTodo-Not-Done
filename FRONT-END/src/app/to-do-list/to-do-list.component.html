@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <style>
+
+
+
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datepicker</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+</head>
+<body>
+
+<div class="row">
+  <div class="content" id="content" style="background-color: #040720">
+    <svg onclick="toggleSidebar()" xmlns="http://www.w3.org/2000/svg" width="27" height="24" color="white" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.464 20.535C4.93 22 7.286 22 12 22c4.714 0 7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464C2 4.93 2 7.286 2 12c0 4.714 0 7.071 1.464 8.535ZM18.75 16a.75.75 0 0 1-.75.75H6a.75.75 0 0 1 0-1.5h12a.75.75 0 0 1 .75.75ZM18 12.75a.75.75 0 0 0 0-1.5H6a.75.75 0 0 0 0 1.5h12ZM18.75 8a.75.75 0 0 1-.75.75H6a.75.75 0 0 1 0-1.5h12a.75.75 0 0 1 .75.75Z" clip-rule="evenodd"/></svg>  </div>
+
+  <nav class="navigation1"><div class="left_nav_text1">
+    <a style="margin: 15px;" onclick="openModal()"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__fadeInLeft animate" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 8q-1.25 0-2.125-.875T16 5q0-1.25.875-2.125T19 2q1.25 0 2.125.875T22 5q0 1.25-.875 2.125T19 8ZM4 20q-.825 0-1.413-.588T2 18V6q0-.825.588-1.413T4 4h10.1q-.1.5-.1 1t.1 1q.175.8.575 1.488T15.65 8.7L12 11L4 6v2l8 5l5.275-3.3q.425.15.85.225T19 10q.8 0 1.575-.25T22 9v9q0 .825-.588 1.413T20 20H4Z"/></svg>info2@stlghana.com</a>
+
+    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__fadeInRight" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10.5 20h3q.2 0 .35-.15t.15-.35q0-.2-.15-.35T13.5 19h-3q-.2 0-.35.15t-.15.35q0 .2.15.35t.35.15ZM7 23q-.825 0-1.413-.588T5 21V3q0-.825.588-1.413T7 1h10q.825 0 1.413.588T19 3v18q0 .825-.588 1.413T17 23H7Zm0-7h10V6H7v10Z"/></svg>(+233) 030 2782646/7</a>
+  </div>
+
+  </nav>
+</div>
+<div>
+  <nav class="navigation2">
+
+    <a href="../Todos/index" class="nav_pic_header"><img [src]= stlLogo alt="Super Tech Logo" class="nav_pic_logo animate__animated animate__bounce" loading="lazy"> <h3 class="animate__animated animate__fadeInLeft" th:alt="logo">STL Todos</h3></a>
+
+    <div class="right_nav_text2">
+
+
+      <ul class="menu animate__animated animate__fadeInLeft">
+        <li class="list"><a href="toDo.html">Home</a> </li>
+        <li class="list"><a href="https://www.stlghana.com/company-profile/">About Us</a> </li>
+        <li class="list"><a href="https://www.stlghana.com/"><button class="btn animate__animated animate__rubberBand animate">Visit Our Site</button></a></li>
+<!--        <button class="openStatisticsModalButton" type="button" onclick="openStatisticsModal()" style="float:right" >View Todo Statistics</button>-->
+      </ul>
+    </div>
+  </nav>
+
+</div>
+
+
+
+<div class="row" style="height: auto;">
+ <div class="sidebar" id="sidebar">
+    <p>Sidebar content goes here</p>
+  </div>
+  <div class="col-md-6 border">
+    <h5 class="side_columns_header">To Dos</h5>
+    <form [formGroup]="formGroup" id="insertForm">
+        <label>Task
+        <input type="text" id="insert_task" formControlName="task" required>
+      </label>
+
+      <br>
+
+      <label>Date
+        <input type="date" id="insert_date" formControlName="date" required>
+      </label>
+
+      <br>
+
+      <label>Time
+        <input type="time" id="insert_time" formControlName="time" required>
+      </label>
+
+      <button class="submit" type="submit" (click)="confirmInsert()" class="btn btn-danger" style="margin-left: 10px"> Insert</button>
+      <thead  class="table-dark">
+      <tr class="bg-primary">
+        <th scope="col">Id</th>
+        <th scope="col">Task</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Entry Time</th>
+        <th scope="col"  style="padding-right:0 ">Actions</th>
+      </tr>
+      </thead>
+      <tr class="bg-primary1" *ngFor="let todo of todos" (click)="fetchTodoData(todo.id)">
+        <td class="bg-primary1" id= "id" >{{todo.id}}</td>
+        <td class="bg-primary1" id= "task" >{{todo.task}}</td>
+        <td class="bg-primary1" id= "date" >{{todo.date}}</td>
+        <td class="bg-primary1" id="customer_id_user" >{{todo.time}}</td>
+        <td class="bg-primary1" id="createdAt" >{{todo.createdAt}}</td>
+        <td style="display: flex; padding-right:0 ">
+          <!-- Add this button in your Angular component's HTML template -->
+          <button type="button" class="EditBtn"  onclick="openUpdateModal()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 19h1.4l8.625-8.625l-1.4-1.4L5 17.6V19ZM19.3 8.925l-4.25-4.2l1.4-1.4q.575-.575 1.413-.575t1.412.575l1.4 1.4q.575.575.6 1.388t-.55 1.387L19.3 8.925ZM17.85 10.4L7.25 21H3v-4.25l10.6-10.6l4.25 4.25Zm-3.525-.725l-.7-.7l1.4 1.4l-.7-.7Z"/></svg></button>
+          <button (click)="confirmDone(todo.id)" class="btn btn-danger" style="margin-left: 10px"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m19.77 5.03l1.4 1.4L8.43 19.17l-5.6-5.6l1.4-1.4l4.2 4.2L19.77 5.03m0-2.83L8.43 13.54l-4.2-4.2L0 13.57L8.43 22L24 6.43L19.77 2.2z"/></svg></button>
+
+          <button (click)="confirmDelete(todo.id)" class="btn btn-danger" style="margin-left: 10px"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7ZM17 6H7v13h10V6ZM9 17h2V8H9v9Zm4 0h2V8h-2v9ZM7 6v13V6Z"/></svg></button>
+        </td>
+      </tr>
+    </form>
+
+
+  </div>
+
+
+  <div class="col-md-6 border">
+    <h5 class="side_columns_header">Done</h5>
+
+    <thead  class="table-dark">
+    <tr class="bg-primary">
+      <th scope="col">Id</th>
+      <th scope="col">Task</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Entry Time</th>
+      <th scope="col"  style="padding-right:0 ">Actions</th>
+    </tr>
+    </thead>
+    <tr class="bg-primary1" *ngFor="let doneTodo of doneTodos" (click)="fetchTodoData(doneTodo.id)">
+      <td class="bg-primary1" id= "doneId" >{{doneTodo.id}}</td>
+      <td class="bg-primary1" id= "doneTask" >{{doneTodo.task}}</td>
+      <td class="bg-primary1" id= "doneDate" >{{doneTodo.date}}</td>
+      <td class="bg-primary1" id="doneTime" >{{doneTodo.time}}</td>
+      <td class="bg-primary1" id="doneCreatedAt" >{{doneTodo.createdAt}}</td>
+      <td style="display: flex; padding-right:0 ">
+        <button (click)="confirmDoneDelete(doneTodo.id)" class="btn btn-danger" style="margin-left: 10px"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7ZM17 6H7v13h10V6ZM9 17h2V8H9v9Zm4 0h2V8h-2v9ZM7 6v13V6Z"/></svg></button>
+      </td>
+    </tr>
+
+  </div>
+</div>
+
+
+<!-- Update Modal -->
+<div id="updateModal" class="modal-overlay" *ngFor="let todo of todos">
+  <div class="modal-content">
+    <span class="close" onclick="closeUpdateModal()"><button class="close">Close</button></span>
+    <form [formGroup]="formGroup" id="updateForm">
+
+      <label>Task
+        <input type="text" id="update_task" formControlName="task" required>
+      </label>
+      <br>
+      <label>Date
+        <input type="date" id="update_date" formControlName="date" required>
+      </label>
+      <br>
+      <label>Time
+        <input type="time" id="update_time" formControlName="time" required>
+      </label>
+
+<!--      <label>First Name-->
+<!--        <input type="text" id="firstnameVal" name="first_name" formControlName="firstname" required>-->
+<!--      </label>-->
+<!--      <label>Last Name-->
+<!--        <input type="text" id="lastnameVal" name="last_name" formControlName="lastname" required>-->
+<!--      </label>-->
+<!--      <label>E-mail-->
+<!--        <input type="text" id="emailVal" name="email_name" formControlName="email" required>-->
+<!--      </label>-->
+      <button class="submit" type="submit" (click)=" confirmUpdate(todo.id)" id="submitUpdatedData">Update</button>
+    </form>
+
+  </div>
+</div>
+
+<footer class="footerClass" >
+  Copyright &copy; 2023
+
+  <div class="footer_socials">
+    <a href="https://instagram.com/pjaysniper"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__bounce" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3Z"/></svg></a>
+
+    <a href="https://twitter.com/pjaysniper"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__fadeInLeft" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z"/></svg></a>
+
+    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__bounce" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+
+    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__fadeInRight" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a>
+
+    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__bounce" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73Z"/></svg></a>
+
+  </div>
+
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "CockroachDB",
+            "name": "postgres",
+            "database": "postgres",
+            "username": "SoftIntern"
+        }
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}

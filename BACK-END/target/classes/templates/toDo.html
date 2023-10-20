@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="ISO-8895-1">
+    <meta name="description" content="Watch Free Football Matches | Live Stream|">
+    <meta name="keywords" content="Watch, Free, Live , Football, Matches, Soccer ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--CSP Directives-->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://mdbootstrap.com https://image-service.onefootball.com https://oneftbl-cms.imgix.net https://static0.givemesportimages.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://cdn.datatables.net; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net https://code.iconify.design https://kit.fontawesome.com https://ka-f.fontawesome.com ajax.googleapis.com 'unsafe-inline' cdnjs.cloudflare.com https://unpkg.com https://cdn.datatables.net; img-src 'self' data: https://mdbootstrap.com https://image-service.onefootball.com https://oneftbl-cms.imgix.net https://icdn.caughtoffside.com https://static0.givemesportimages.com https://cdn.datatables.net; font-src 'self' https://kit.fontawesome.com https://ka-f.fontawesome.com; connect-src 'self' https://football98.p.rapidapi.com;">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <link rel="shortcut icon" type="x-icon" href="img/icon.jpg">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+    <link href="/static/css/styles.css" rel="stylesheet" type="text/css">
+
+
+    <link th:href="@{/static/css/styles.css}" rel="stylesheet" type="text/css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.5.0/css/select.bootstrap5.min.css">
+
+    <!-- jQuery -->
+    <script th:src="@{https://code.jquery.com/jquery-3.5.1.min.js}"></script>
+
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" th:href="@{https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css}" />
+    <script type="text/javascript" charset="utf8" th:src="@{https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js}"></script>
+
+<!--    <link rel="stylesheet" type="text/css" href="http://localhost:8080/css/styles.css">-->
+
+<style>
+
+    *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html{
+    padding: 0px;
+    margin: 0px;
+    background-color: whitesmoke;
+    overflow-x: hidden;
+    width: auto;
+    height: auto;
+}
+
+body{
+    color: white;
+    padding: 0px;
+    margin: 0px;
+    background-color: whitesmoke;
+    overflow-x: hidden;
+    width: auto;
+    height: auto;
+}
+
+nav li{
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.navigation, .navigation1{
+    color: whitesmoke;;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 50px;
+    background-color: whitesmoke;;
+    background-image: linear-gradient(black, #040720);
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.nav_buttons{
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    z-index: 1;
+    background-color: whitesmoke;;
+}
+
+
+li{
+    margin: 6px;
+    padding: 0px 5px;
+
+}
+
+li:hover {
+    background-color: whitesmoke;
+    border-radius: 30%;
+}
+
+
+.bodyClass{
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: auto;
+    color: whitesmoke;;
+    font-family: serif;
+}
+
+a {
+    color: whitesmoke; !important;
+    text-decoration: none !important;
+}
+
+
+.navigation1{
+    color: whitesmoke;;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 50px;
+    background-color: whitesmoke;;
+    background-image: linear-gradient(#040720 ,black);
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.left_nav_text1{
+    color: whitesmoke;
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    z-index: 1;
+    padding: 10px;
+}
+
+.right_nav_text1{
+    color: whitesmoke;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    z-index: 1;
+    padding: 10px;
+
+}
+
+.navigation2{
+    /*background-image: url('C:/Users/Jnr/Desktop/Programming/Pious Website/Pious Website/pics/icon.png');*/
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100px;
+    background-color: whitesmoke;;
+    background-image: linear-gradient(#040720,black);
+    z-index: 1;
+    display: inline-block;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+}
+
+.nav_pic_logo{
+    position: relative;
+    width: auto;
+    height: 80px;
+    clip-path: circle();
+    float: left;
+    margin-left: 50px;
+    margin-right: 15px;
+    top: 10px;
+}
+
+
+h3{
+    position: relative;
+    top: 25px;
+}
+
+.right_nav_text2 {
+    color: whitesmoke;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    z-index: 1;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.list{
+    display: inline-block;
+}
+
+
+
+
+
+.btn{
+    background-color: #212529;
+    border-color: whitesmoke;;
+    color: whitesmoke;
+}
+
+
+button{
+    background-color: #212529 !important;
+    padding: 3px;
+    border-radius: 5px;
+    color: whitesmoke;
+}
+
+
+.DetailsBtn, DeleteBtn, EditBtn{
+    padding: 0 !important;
+}
+
+
+.nav-text{
+    color: whitesmoke;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+    font-family: sans-serif;
+}
+
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 10px 0px 10px;
+}
+
+.navbar-icon {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+}
+
+
+.table{
+    box-shadow: 0 8.5px 17px rgba(0, 0, 0, 0.5) !important;
+    color: white !important;
+}
+
+td{
+    color: white !important;
+}
+
+.bg-primary{
+    box-shadow: 0 8.5px 17px rgba(0, 0, 0, 0.5) !important;
+    background-color: #040720 !important;
+}
+
+#updateModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    padding: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1;
+
+}
+
+#insertModal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    padding: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1;
+
+}
+
+#detailsModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    padding: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1;
+}
+
+#statisticsModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    padding: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1;
+}
+
+#updateForm, #insertForm, #detailsForm, #statistics{
+    position: relative;
+    width: auto;
+    max-width: 400px;
+    margin: auto; /* Center the form horizontally */
+    background-image: linear-gradient(#040720, black, #040720);
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+
+}
+
+.modal-content {
+    width: 240px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: #040720;
+}
+
+.modal-overlay {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.card-body{
+    background-color: #040720;
+    font-family: sans-serif;
+    font-size: large;
+}
+
+.openInsertModalButton{
+    margin-bottom: 0 !important;
+    position: relative;
+    right: 50vw;
+    padding: 5px;
+}
+
+.submit {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0; /* Center the button horizontally */
+    cursor: pointer;
+}
+
+.close {
+    position: relative;
+    width: 100%;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.footer_socials{
+    position: absolute;
+    /*float: right;*/
+    right: 20px;
+}
+
+.footerClass{
+    height: 80px;
+    background-color: #040720;;
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px 0px 20px 0;
+    margin-top: 0px;
+    box-shadow: 0 8.5px 17px rgba(0, 0, 0, 0.5) !important;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}</style>
+
+
+</head>
+<body class="${someCondition} ? 'dark-theme' : 'light-theme'">
+
+
+
+<div class="row">
+	<nav class="navigation1"><div class="left_nav_text1">
+		<a style="margin: 15px;" onclick="openModal()"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__fadeInLeft animate" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 8q-1.25 0-2.125-.875T16 5q0-1.25.875-2.125T19 2q1.25 0 2.125.875T22 5q0 1.25-.875 2.125T19 8ZM4 20q-.825 0-1.413-.588T2 18V6q0-.825.588-1.413T4 4h10.1q-.1.5-.1 1t.1 1q.175.8.575 1.488T15.65 8.7L12 11L4 6v2l8 5l5.275-3.3q.425.15.85.225T19 10q.8 0 1.575-.25T22 9v9q0 .825-.588 1.413T20 20H4Z"/></svg>info2@stlghana.com</a>
+
+		<a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__fadeInRight" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10.5 20h3q.2 0 .35-.15t.15-.35q0-.2-.15-.35T13.5 19h-3q-.2 0-.35.15t-.15.35q0 .2.15.35t.35.15ZM7 23q-.825 0-1.413-.588T5 21V3q0-.825.588-1.413T7 1h10q.825 0 1.413.588T19 3v18q0 .825-.588 1.413T17 23H7Zm0-7h10V6H7v10Z"/></svg>(+233) 030 2782646/7</a>
+		</div>
+
+	</nav>
+</div>
+<div>
+	<nav class="navigation2">
+
+        <a href="../Todos/index" class="nav_pic_header"><img src="../static/images/super_tech_logo.jpg" alt="Super Tech Logo" class="nav_pic_logo animate__animated animate__bounce" loading="lazy"> <h3 class="animate__animated animate__fadeInLeft" th:alt="logo">STL Todos</h3></a>
+
+	<div class="right_nav_text2">
+
+
+    <ul class="menu animate__animated animate__fadeInLeft">
+        <li class="list"><a href="toDo.html">Home</a> </li>
+      <li class="list"><a href="https://www.stlghana.com/company-profile/">About Us</a> </li>
+	  <li class="list"><a href="https://www.stlghana.com/"><button class="btn animate__animated animate__rubberBand animate">Visit Our Site</button></a></li>
+      <button class="openStatisticsModalButton" type="button" onclick="openStatisticsModal()" style="float:right" >View Todo Statistics</button>
+    </ul>
+	</div>
+	</nav>
+</div>
+
+
+<button class="openInsertModalButton" type="button" onclick="openInsertModal()" style="float:right" >Add Todo</button>
+
+<div><table id="example" class="table table-striped table-bordered">
+    <thead  class="table-dark">
+    <tr class="bg-primary">
+        <th scope="col">Id</th>
+        <th scope="col">Task</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">unixEpochMillis</th>
+        <th scope="col"  style="padding-right:0 ">Actions</th>
+    </tr>
+    </thead>
+    <tbody id="subscriberTableBody">
+    <tr class="bg-primary" th:each = "Todos: ${todos}">
+        <td th:text="${Todos.id}"></td>
+        <td class="bg-primary" id= "task" th:text = "${Todos.task}"></td>
+        <td class="bg-primary" id= "date" th:text = "${Todos.date}"></td>
+        <td class="bg-primary" id="time" th:text = "${Todos.time}"></td>
+        <td class="bg-primary" id= "first_name" th:text = "${Todos.firstname}"></td>
+        <td class="bg-primary" id= "last_name" th:text = "${Todos.lastname}"></td>
+        <td class="bg-primary" id= "email" th:text = "${Todos.email}"></td>
+        <td class="bg-primary" id="createdAt" th:text = "${Todos.createdAt}"></td>
+        <td data-th-target="${Todos.id}" th:getId ="${Todos.id}" style="display: flex; padding-right:0 ">
+            <!-- This button opens the modal containing the form -->
+            <button type="button" class="EditBtn"  onclick="openUpdateModal()" th:attr="data-id=${todo?.id}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 19h1.4l8.625-8.625l-1.4-1.4L5 17.6V19ZM19.3 8.925l-4.25-4.2l1.4-1.4q.575-.575 1.413-.575t1.412.575l1.4 1.4q.575.575.6 1.388t-.55 1.387L19.3 8.925ZM17.85 10.4L7.25 21H3v-4.25l10.6-10.6l4.25 4.25Zm-3.525-.725l-.7-.7l1.4 1.4l-.7-.7Z"/></svg></button>
+            <button type="submit" class="DeleteBtn" th:href="@{/{id}(id=${id})}"  th:attr="data-id=${todo?.id}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7ZM17 6H7v13h10V6ZM9 17h2V8H9v9Zm4 0h2V8h-2v9ZM7 6v13V6Z"/></svg></button>
+            <button type="button" class="DetailsBtn" th:href="@{/detailsModal/{id}(id=${id})}" onclick="openDetailsModal()" th:attr="data-id=${todo?.id}"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path fill="currentColor" d="M32 6H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Zm0 22H4V8h28Z" class="clr-i-outline clr-i-outline-path-1"/><path fill="currentColor" d="M9 14h18a1 1 0 0 0 0-2H9a1 1 0 0 0 0 2Z" class="clr-i-outline clr-i-outline-path-2"/><path fill="currentColor" d="M9 18h18a1 1 0 0 0 0-2H9a1 1 0 0 0 0 2Z" class="clr-i-outline clr-i-outline-path-3"/><path fill="currentColor" d="M9 22h10a1 1 0 0 0 0-2H9a1 1 0 0 0 0 2Z" class="clr-i-outline clr-i-outline-path-4"/><path fill="none" d="M0 0h36v36H0z"/></svg></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+
+<!-- Modals -->
+
+<!-- Insert Modal -->
+<div id="insertModal" class="modal-overlay" style= "display:none">
+    <div class="modal-content">
+        <span class="close" onclick="closeInsertModal()"><button class="close">Close</button></span>
+        <form id="insertForm" onsubmit="insertTodo(event); return false;">
+            <label>Task
+                <input type="text" id="insert_task" required>
+            </label>
+            <label>Date
+                <input type="date" id="insert_date" required>
+            </label>
+            <label>Time
+                <input type="time" id="insert_time" required>
+            <label>First Name
+                <input type="text" id="insert_firstname" required>
+            </label>
+            <label>Last Name
+            <input type="text" id="insert_lastname" required>
+        </label>
+            <label>email
+            <input type="text" id="insert_email" required>
+            </label>
+            </label>
+            <!-- You can add more fields as needed -->
+
+            <button class="submit" type="submit">Insert</button>
+        </form>
+
+    </div>
+</div>
+
+<!-- Update Modal -->
+<div id="updateModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close" onclick="closeUpdateModal()"><button class="close">Close</button></span>
+        <form id="updateForm" th:object="${todo}"  method="POST">
+            <input type="hidden" id="id" field="*{id}" name="subscriberId">
+            <label>Task
+                <input type="text" field="*{task}" id="taskVal" name="task" required>
+            </label>
+            <label>Date
+                <input type="date" field="*{date}" id="dateVal" name="date" required>
+            </label>
+            <label>Time
+                <input type="time" field="*{time}" id="timeVal" name="time" required>
+            </label>
+            <label>First Name
+                <input type="text" field="*{first_name}" id="firstnameVal" name="first_name" required>
+            </label>
+            <label>Last Name
+                <input type="text" field="*{last_name}" id="lastnameVal" name="last_name" required>
+            </label>
+            <label>E-mail
+                <input type="text" field="*{email}" id="emailVal" name="email_name" required>
+            </label>
+            <button class="submit" type="submit"  id="submitUpdatedData" >Update</button>
+        </form>
+        <p th:if="${todo == null}">Todo not found</p>
+    </div>
+</div>
+
+<div id="detailsModal" class="modal-overlay" style="display: none" th:each = "Todos: ${todos}">
+    <div class="modal-content">
+        <span class="close" onclick="closeDetailsModal()"><button class="close">Close</button></span>
+        <form class="bg-primary">
+            <input type="hidden" id="idDetails" field="*{id}" name="subscriberId">
+            <h4 style="background-color: #040720;; color: whitesmoke;; border-radius: 50px">Date</h4>
+            <h5 style="background-color: #040720;; color: white; border-radius: 50px" id="dateDetailsVal"><td class="bg-primary" th:text = "${Todos.date}"></td></h5>
+            <h4 style="background-color: #040720;; color: whitesmoke;; border-radius: 50px">Time</h4>
+            <h5 style="background-color: #040720;; color: white; border-radius: 50px" id="timeDetailsVal"><td class="bg-primary"  th:text = "${Todos.time}"></td></h5>
+            <h4 style="background-color: #040720;; color: whitesmoke;; border-radius: 50px">First Name</h4>
+            <h5 style="background-color: #040720;; color: white; border-radius: 50px" id="firstNameDetailsVal"><td class="bg-primary" th:text = "${Todos.firstname}"></td></h5>
+            <h4 style="background-color: #040720;; color: whitesmoke;; border-radius: 50px">Last Name</h4>
+            <h5 style="background-color: #040720;; color: white; border-radius: 50px" id="lastNameDetailsVal"><td class="bg-primary" th:text = "${Todos.lastname}"></td></h5>
+            <h4 style="background-color: #040720;; color: whitesmoke;; border-radius: 50px">E-mail</h4>
+            <h5 style="background-color: #040720;; color: white; border-radius: 50px" id="emailDetailsVal"><td class="bg-primary" th:text = "${Todos.email}"></td></h5>
+            <h4 style="background-color: #040720;; color: whitesmoke;; border-radius: 50px">Task</h4>
+            <h3 style="background-color: #040720;; color: white; border-radius: 50px" id="taskDetailsVal"><td class="bg-primary" th:text = "${Todos.task}"></td></h3>
+        </form>
+        <p th:if="${todo == null}">Todo not found</p>
+    </div>
+</div>
+
+
+<div id="statisticsModal" class="modal-overlay" style="display: none">
+    <div class="modal-content">
+        <span class="close" onclick="closeStatisticsModal()"><button class="close">Close</button></span>
+        <div>
+            <h3 style="background-color: #212529; color: white">Todo Statistics</h3>
+        </div><br>
+        <div id="statistics" class="row">
+            <div class="column">
+                <div class="card">
+                    <div class="card-body d-flex">
+                        <ion-icon class="icon-class" name="people-outline"></ion-icon>
+                        <div>
+                            <span id="totalCount" ></span>
+                            <div>Total Todos </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+        <p th:if="${todo == null}">Todo not found</p>
+    </div>
+
+<!-- Button to open the modal -->
+
+
+
+<footer class="footerClass" >
+	Copyright &copy; 2023
+
+        <div class="footer_socials">
+            <a href="https://instagram.com/pjaysniper"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__bounce" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3Z"/></svg></a>
+
+            <a href="https://twitter.com/pjaysniper"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__fadeInLeft" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z"/></svg></a>
+
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__bounce" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__fadeInRight" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a>
+
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="animate__animated animate__bounce" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73Z"/></svg></a>
+
+        </div>
+
+
+</footer>
+<script th:inline="javascript">
+    console.log("checking for this, first time")
+    let count = /*[[${totalCount}]]*/ '';
+    let subscriberCount = /*[[${subscriberCount}]]*/ '';
+    // console.log("checking for this")
+    console.log("count",count)
+    console.log("subscriberCount",subscriberCount)
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $.noConflict();
+        console.log("Paginate Data Table")
+        $('#example').DataTable({
+            select:true
+        });
+    });
+</script>
+
+<script>
+
+    function openDetailsModal() {
+        document.getElementById("detailsModal").style.display = "block";
+    }
+
+
+    function openInsertModal() {
+        document.getElementById("insertModal").style.display = "block";
+    }
+
+    function closeInsertModal() {
+        document.getElementById("insertModal").style.display = "none";
+    }
+
+
+    function closeUpdateModal() {
+        document.getElementById("updateModal").style.display = "none";
+    }
+
+    function closeDetailsModal() {
+        document.getElementById("detailsModal").style.display = "none";
+    }
+
+
+    function closeStatisticsModal() {
+        document.getElementById("statisticsModal").style.display = "none";
+    }
+
+
+</script>
+
+<!--INSERT-->
+<script>
+        function insertTodo(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Create a JavaScript object with the form data
+        let subscriberData = {
+            task: document.getElementById('insert_task').value,
+            date: document.getElementById('insert_date').value,
+            time: document.getElementById('insert_time').value,
+            firstname: document.getElementById('insert_firstname').value,
+            lastname: document.getElementById('insert_lastname').value,
+            email: document.getElementById('insert_email').value,
+            // Add more fields as needed
+        };
+
+        // Send the data as a JSON request to the Spring Boot controller
+        fetch('/Todos/addNewTodo', { // Corrected URL
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(subscriberData)
+        })
+            .then(function(response) {
+                if (response.ok) {
+                    // Handle success here, e.g., show a success message
+                    alert('Todo added successfully');
+                } else {
+                    // Handle errors here, e.g., show an error message
+                    alert('Todo already Exists');
+                }
+            })
+            .catch(function(error) {
+                // Handle network errors here
+                console.error('Error:', error);
+            });
+
+    //Update UI with new todo
+
+    // Create a new row for the table
+    let newRow = document.createElement('tr');
+
+    // Create table cells for each field
+    let idCell = document.createElement('td');
+    let taskCell = document.createElement('td');
+    let customerOwnerIdCell = document.createElement('td');
+    let customerUserIdCell = document.createElement('td');
+    let firstnameCell = document.createElement('td');
+    let lastnameCell = document.createElement('td');
+    let emailCell = document.createElement('td');
+
+    // Populate the cells with values from the form
+
+    taskCell.textContent = document.getElementById('insert_task').value;
+    customerOwnerIdCell.textContent = document.getElementById('insert_date').value;
+    customerUserIdCell.textContent = document.getElementById('insert_time').value;
+    firstnameCell.textContent = document.getElementById('insert_firstname').value;
+    lastnameCell.textContent = document.getElementById('insert_lastname').value;
+    emailCell.textContent = document.getElementById('insert_email').value;
+    // Note: For security reasons, you shouldn't populate the password field here.
+
+    // Append the cells to the new row
+    newRow.appendChild(idCell);
+    newRow.appendChild(taskCell);
+    newRow.appendChild(customerOwnerIdCell);
+    newRow.appendChild(customerUserIdCell);
+    newRow.appendChild(firstnameCell);
+    newRow.appendChild(lastnameCell);
+    newRow.appendChild(emailCell);
+    // Note: You should not append the password field to the table for security reasons.
+
+    // Append the new row to the table
+    let tableBody = document.getElementById('subscriberTableBody');
+    tableBody.appendChild(newRow);
+
+    // Optionally, you can clear the form fields after insertion
+    document.getElementById('insert_task').value = '';
+    document.getElementById('insert_date').value = '';
+    document.getElementById('insert_time').value = '';
+    document.getElementById('insert_firstname').value = '';
+    document.getElementById('insert_lastname').value = '';
+    document.getElementById('insert_email').value = '';
+
+    }
+    // Note: You should not clear the password field here for security reasons.
+
+</script>
+
+<!-- Add this script to your HTML file -->
+<script>
+    function openUpdateModal() {
+        document.getElementById("updateModal").style.display = "block";
+
+        let myBtn = document.querySelectorAll(".EditBtn");
+
+        myBtn.forEach(btn => {
+            btn.addEventListener("click", function () {
+                let tableRow = $(this).closest("tr");
+
+                let id = $(tableRow).find('td:eq(0)').text();
+                let task = $(tableRow).find('td:eq(1)').text();
+                let date = $(tableRow).find('td:eq(2)').text();
+                let time = $(tableRow).find('td:eq(3)').text();
+                let firstname = $(tableRow).find('td:eq(4)').text();
+                let lastname = $(tableRow).find('td:eq(5)').text();
+                let email = $(tableRow).find('td:eq(6)').text();
+                let password = $(tableRow).find('td:eq(7)').text(); // Assuming you have a password field
+                let role = $(tableRow).find('td:eq(8)').text(); // Assuming you have a role field
+
+                console.log("The table row has ID:", id);
+                $("#id").val(id);
+                $("#taskVal").val(task);
+                $("#dateVal").val(date);
+                $("#timeVal").val(time);
+                $("#firstnameVal").val(firstname);
+                $("#lastnameVal").val(lastname);
+                $("#emailVal").val(email);
+                $("#passwordVal").val(password); // Assuming you have a password field
+                $("#roleVal").val(role); // Assuming you have a role field
+
+
+            if(id){
+                $.ajax({
+                    url: `http://localhost:8080/Todos/${id}`,
+                    type: "get",
+                    contentType: "application/json",
+                    headers: {
+                        "X-HTTP-Method-Override": "GET" // Use custom header to indicate "PUT" request
+                    },
+                    success: function(updatedData) {
+
+                        console.log("DATA TO  EDIT:", updatedData);
+
+                        $("#taskVal").val(updatedData.task);
+                        $("#dateVal").val(updatedData.date);
+                        $("#timeVal").val(updatedData.time);
+                        $("#firstnameVal").val(updatedData.firstname);
+                        $("#lastnameVal").val(updatedData.lastname);
+                        $("#emailVal").val(updatedData.email);
+                        $("#roleVal").val(updatedData.role); // Assuming you have a role field
+
+                        // You can also update the UI with the new data if needed
+                    },
+                    error: function(error) {
+                        console.error("FETCHING  error:", error);
+                        // Handle errors if needed
+                    }
+                });
+            }
+
+        })
+    })}
+
+
+    let submitBtn = document.querySelector("#submitUpdatedData")
+
+    submitBtn.addEventListener("click",function (event){
+
+        event.preventDefault(); // Prevent default form submission
+
+        let id = $('#id').val();
+        let task = $("#taskVal").val();
+        let dateVal = $("#dateVal").val();
+        let timeVal = $("#timeVal").val();
+        let firstname = $("#firstnameVal").val();
+        let lastname = $("#lastnameVal").val();
+        let email = $("#emailVal").val();
+        let password = $("#passwordVal").val(); // Assuming you have a password field
+        let role = $("#roleVal").val(); // Assuming you have a role field
+
+        let dataSet = {
+            "id": id,
+            "task": task,
+            "date": dateVal,
+            "time": timeVal,
+            "firstname": firstname,
+            "lastname": lastname,
+            "email": email,
+            "password": password, // Assuming you have a password field
+            "role": role // Assuming you have a role field
+        };
+
+
+        alert(JSON.stringify(dataSet))
+
+
+
+        $.ajax({
+            url: `http://localhost:8080/Todos/update/${id}`,
+            type: "PUT",
+            contentType: "application/json",
+            headers: {
+                "X-HTTP-Method-Override": "PUT"
+            },
+                data: JSON.stringify(dataSet),
+            success: function(dataSet) {
+
+                console.log("Update successful:", dataSet);
+                location.reload()
+                // closeUpdateModal(); // Close the modal after successful update
+                // You can also update the UI with the new data if needed
+                $("#task").val(dataSet.task);
+                $("#date").val(dataSet.date);
+                $("#time").val(dataSet.time);
+                $("#firstname").val(dataSet.firstname);
+                $("#lastname").val(dataSet.lastname);
+                $("#email").val(dataSet.email);
+                $("#password").val(dataSet.password); // Assuming you have a password field
+                $("#role").val(dataSet.role); // Assuming you have a role field
+
+                // Handle errors if needed
+            },
+
+            error: function(error) {
+                console.error(error);
+                alert("Failed to Update Todo");
+
+                $("#task").val(dataSet.task)
+                $("#firstname").val(dataSet.firstname);
+                $("#lastname").val(dataSet.lastname);
+                $("#email").val(dataSet.email);
+
+            }
+
+            });
+
+        closeUpdateModal(); // Close the modal after successful update
+
+    })
+
+
+</script>
+
+
+    <script>
+        let myDetailsBtn = document.querySelectorAll(".DetailsBtn");
+
+        myDetailsBtn.forEach(btn => {
+        btn.addEventListener("click", function () {
+            let tableRow = this.closest("tr");
+
+            let idDetails = tableRow.cells[0].textContent;
+            let taskDetailsVal = tableRow.cells[1].textContent;
+            let dateDetailsVal = tableRow.cells[2].textContent;
+            let timeDetailsVal = tableRow.cells[3].textContent;
+            let firstnameDetailsVal = tableRow.cells[5].textContent;
+            let lastnameDetailsVal = tableRow.cells[6].textContent;
+            let emailDetailsVal = tableRow.cells[7].textContent;
+            let passwordDetailsVal = tableRow.cells[8].textContent; // Assuming you have a password field
+            let roleDetailsVal = tableRow.cells[9].textContent; // Assuming you have a role field
+            let unixEpochMillisDetailsVal = tableRow.cells[10].textContent; // Assuming you have an additional field
+
+            let dataSet = {
+                "id": idDetails,
+                "task": taskDetailsVal,
+                "date": dateDetailsVal,
+                "time": timeDetailsVal,
+                "firstname": firstnameDetailsVal,
+                "lastname": lastnameDetailsVal,
+                "email": emailDetailsVal,
+                "password": passwordDetailsVal, // Assuming you have a password field
+                "role": roleDetailsVal, // Assuming you have a role field
+                "unixEpochMillis": unixEpochMillisDetailsVal // Assuming you have an additional field
+            };
+
+
+            console.log("The Table Row ID is:",idDetails)
+
+            console.log("The Todo Data is: ",dataSet)
+
+            $("#idDetails").text(dataSet.id)
+            $("#taskDetailsVal").text(dataSet.task)
+            $("#firstnameDetailsVal").text(dataSet.firstname)
+            $("#lastnameDetailsVal").text(dataSet.lastname)
+            $("#emailDetailsVal").text(dataSet.email)
+            $("#dateDetailsVal").text(dataSet.date)
+            $("#timeDetailsVal").text(dataSet.time)
+
+
+            if(idDetails){
+
+             console.log("PJaySniper is at STL");
+
+            }
+
+
+
+
+        })
+    })
+
+
+</script>
+
+
+<script>
+    function openStatisticsModal() {
+        document.getElementById("statisticsModal").style.display = "block";
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/Todos/stats", // The URL of your controller endpoint
+            success: function(data) {
+                // Access properties directly from the 'data' object
+                var totalCount = data.totalCount;
+
+                // Update HTML elements with the received values
+                $("#totalCount").text(totalCount);
+            },
+            error: function(xhr, status, error) {
+                console.error("Error fetching todo statistics: " + error);
+            }
+        });
+    }
+
+    // Call the function when the page loads
+</script>
+
+
+
+<!-- Delete Code -->
+    <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+
+    <script>
+
+            $(".DeleteBtn").click(function() {
+                let id = $(this).closest("tr").find("td:eq(0)").text();
+                // Now 'id' contains the value of the 'data-id' attribute of the clicked button
+
+                event.preventDefault();
+            console.log("PJaySniper is at STL");
+
+                let tableRow = $(this).closest("tr");
+
+                // Ask for confirmation before deleting
+                if (id) {
+                    // Proceed with the AJAX request
+
+                if (window.confirm('Are you sure you want to delete this item?')) {
+                    $.ajax({
+                        url: `http://localhost:8080/Todos/${id}`,
+                        type: 'DELETE',
+                        success: function () {
+                            console.log('Todo deleted successfully');
+                            tableRow.remove();
+                            // Find and remove the todo element by its ID
+                            // let subscriberId = url.split('/').pop(); // Extract the ID from the URL
+                            // $('#todo' + subscriberId).remove(); // Remove the UI element
+
+                        },
+                        error: function () {
+                            console.log('Failed to delete todo');
+                            // Optional: Show an error message to the user
+                        }
+                    });
+                }} });
+
+    </script>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Silent Check SSO</title>
+</head>
+<body>
+<script>
+  const initOptions = {
+    onLoad: 'check-sso',
+    checkLoginIframe: false
+  };
+
+  const keycloak = Keycloak();
+  keycloak.init(initOptions).then((authenticated) => {
+    if (authenticated) {
+      document.write("Authenticated");
+    } else {
+      document.write("Not Authenticated");
+    }
+  }).catch(() => {
+    document.write("Keycloak init failed");
+  });
+</script>
+</body>
+</html>

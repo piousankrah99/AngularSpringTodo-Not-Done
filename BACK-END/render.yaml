@@ -1,0 +1,9 @@
+services:
+  - name: STLTodos
+    type: web
+    env:
+      - key: ""
+        value: ""
+    buildCommand: echo 'Building is not required'
+    startCommand: docker run -p 80:8080 ghcr.io/piousankrah99/STLTodos:main
+    healthCheckPath: /healthcheck  # Optional: Replace with your app's health check path
